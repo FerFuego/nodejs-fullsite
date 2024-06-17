@@ -1,0 +1,21 @@
+{
+  "name": "agenciaviajesnode",
+  "version": "1.0.0",
+  "description": "Agencia de Viajes con Node.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "type": "module",
+  "author": "Fer Catalano",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^2.0.22"
+  }
+}
