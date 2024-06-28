@@ -3,18 +3,8 @@ extends ./layout/index
 block contenido
     main.container.mt-5
         h1.text-center.mb-3 #{pagina}
-        .row.testimoniales.mb-5
-            if(testimoniales)
-                each testi in testimoniales
-                    .col-md-6.col-lg-4.mb-4
-                        .card
-                            .card-body
-                                blockquote.blockquote
-                                p.mb-0
-                                    | #{testi.mensaje}
-                                footer.blockquote-footer
-                                    | #{testi.nombre}
-
+        include ./layout/bloque_testimoniales
+        
         .row.justify-content-center.col
             h2.d-block.w-100.text-center.mb-3 Agregar Testimonial
             if(errores)

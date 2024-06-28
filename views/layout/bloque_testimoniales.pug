@@ -1,0 +1,11 @@
+.row.testimoniales.mb-5.mt-4
+    if(testimoniales)
+        each testi in testimoniales
+            .col-md-6.col-lg-4.mb-4
+                .card
+                    .card-body
+                        blockquote.blockquote
+                        p.mb-0
+                            | #{testi.mensaje}
+                        footer.blockquote-footer
+                            | #{testi.nombre}

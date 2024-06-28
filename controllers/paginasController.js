@@ -1,10 +1,28 @@
 import { Viajes } from "../models/Viaje.js";
+import { Testimonial } from "../models/Testimonial.js";
 
-const pageIndex = (req, res) => {
-    res.render('inicio', {
-        pagina: 'Agencia de viajes',
-        clase: 'home'
-    });
+const pageIndex = async (req, res) => {
+
+    const promiseDB = [];
+    // consulta a la base de datos al momento de renderizar la vista
+    // ambas promesas se ejecutan al mismo tiempo
+    // mejora el rendimiento, no bloquea la vista
+    promiseDB.push(Viajes.findAll({ limit: 3 }));
+    promiseDB.push(Testimonial.findAll({ limit: 3 }));
+
+    try {
+        // consulta a la base de datos
+        const [viajes, testimoniales] = await Promise.all(promiseDB);
+    
+        res.render('inicio', {
+            pagina: 'Agencia de viajes',
+            clase: 'home',
+            viajes,
+            testimoniales
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const pageWeAre = (req, res) => {
